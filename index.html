@@ -636,7 +636,7 @@
     </h1>
 
     <p class="hero-sub">
-      Claim your <strong>FREE daily pack streak</strong>, unlock bigger mystery rewards, and pull real PSA 10 Grails, Japanese Vintage &amp; One Piece booster boxes!
+      Deposit just <strong>$10</strong> to unlock <strong>daily free pack claims</strong>, then use code <strong>FREEPACK10</strong> within 24 hours for a <strong>FREE $10 pack</strong>! Pull real PSA 10 Grails, Japanese Vintage &amp; One Piece booster boxes!
     </p>
 
     <!-- App Showcase Visual -->
@@ -669,6 +669,26 @@
     </div>
   </div>
 
+  <!-- Deposit + Free Pack Promo -->
+  <div class="code-section">
+    <div class="code-card" style="border-color: rgba(255, 215, 0, 0.5);">
+      <div class="code-label" style="color: #FFD700;">💰 Free $10 Pack — Promo Code</div>
+      <div class="code-display">
+        <div class="code-value" id="promo-text" style="font-size: clamp(1.8rem, 6vw, 2.6rem);">FREEPACK10</div>
+        <button class="copy-btn" id="promo-copy-btn" onclick="copyPromo()" title="Copy promo code" aria-label="Copy promo code" style="border-color: rgba(255, 215, 0, 0.5); color: #FFD700;">
+          📋
+        </button>
+      </div>
+      <p class="code-desc">
+        <strong style="color: #FFD700;">⚡ How it works:</strong><br/>
+        1. Sign up &amp; deposit <strong>minimum $10</strong><br/>
+        2. At checkout, tap <strong>"Have a promo code?"</strong> and enter <strong>FREEPACK10</strong> within <strong>24 hours</strong> of registering<br/>
+        3. Get a <strong>FREE $10 pack</strong> instantly!<br/>
+        <span style="color: rgba(255, 215, 0, 0.8); font-size: 0.82rem; margin-top: 6px; display: inline-block;">✨ Your 1st deposit also enables daily free pack claims forever!</span>
+      </p>
+    </div>
+  </div>
+
   <!-- CTA Button -->
   <div class="cta-section">
     <a
@@ -678,9 +698,9 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      🎁 Claim Free Daily Pack &amp; Streak
+      🎁 Sign Up &amp; Claim Free $10 Pack
     </a>
-    <p class="cta-sub">Opens Tilt Rips Web App · Code WMDA1OTJ Auto-Applied</p>
+    <p class="cta-sub">Opens Tilt Rips Web App · Min $10 deposit · Code FREEPACK10 within 24hrs</p>
   </div>
 
   <!-- Key Features Grid -->
@@ -689,7 +709,7 @@
       <div class="feature-card">
         <span class="feature-icon">🔥</span>
         <div class="feature-title">Free Daily Streak</div>
-        <div class="feature-desc">Claim a free pack daily. Keep your streak alive to unlock bigger rewards!</div>
+        <div class="feature-desc">Make your 1st deposit to unlock daily free packs forever. Keep your streak alive for bigger rewards!</div>
       </div>
       <div class="feature-card">
         <span class="feature-icon">🏆</span>
@@ -717,21 +737,28 @@
         <div class="step-num">1</div>
         <div class="step-text">
           <strong>Open Tilt Rips</strong>
-          <span>Click the button above to launch the Tilt Rips app.</span>
+          <span>Click the button above to launch Tilt Rips with code WMDA1OTJ.</span>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-text">
-          <strong>Sign Up with Code WMDA1OTJ</strong>
-          <span>Your bonus referral code is auto-applied on signup.</span>
+          <strong>Deposit Minimum $10</strong>
+          <span>Your 1st deposit unlocks daily free pack claims forever!</span>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-text">
-          <strong>Claim Daily Free Pack 🎉</strong>
-          <span>Start your daily streak, rip packs, and pull graded grails!</span>
+          <strong>Enter Code FREEPACK10 ⏰</strong>
+          <span>At checkout, tap "Have a promo code?" and enter FREEPACK10 within 24 hours for a FREE $10 pack!</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">
+          <strong>Claim Daily Free Packs 🎉</strong>
+          <span>Come back every day for your free streak packs and pull PSA graded grails!</span>
         </div>
       </div>
     </div>
@@ -791,6 +818,35 @@
     const toast = document.getElementById('toast');
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 2800);
+  }
+
+  // ── Copy Promo Code to Clipboard ──
+  function copyPromo() {
+    const code = 'FREEPACK10';
+    navigator.clipboard.writeText(code).then(() => {}).catch(() => {
+      const el = document.createElement('textarea');
+      el.value = code;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+    });
+
+    const btn = document.getElementById('promo-copy-btn');
+    btn.classList.add('copied');
+    btn.textContent = '✅';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = '📋';
+    }, 2500);
+
+    const toast = document.getElementById('toast');
+    toast.textContent = '✅ Promo code FREEPACK10 copied!';
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+      toast.textContent = '✅ Code WMDA1OTJ copied!';
+    }, 2800);
   }
 </script>
 <!-- v3.0 - Tilt Rips Launch -->
